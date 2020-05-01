@@ -1,24 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title> Halaman <?= $data['title'];	?> </title>
+  <head>
+  	<title> Halaman <?= $data['judul']; ?> </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" href="<?= BASEURL; ?>/css/bootstrap.min.css">
-</head>
-<body>
+    	<link href="<?= baseurl; ?>/css/poppins.css" rel="stylesheet">
+		
+		<link rel="stylesheet" href="<?= baseurl; ?>/vendor/bootstrap/css/bootstrap.min.css">
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-info">
-		<div class="container">
-		  <a class="navbar-brand" href="<?= BASEURL; ?>"> PHPMVC </a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		    <div class="navbar-nav ml-auto">
-		      <a class="nav-item nav-link" href="<?= BASEURL; ?>"> Home </a>
-		      <a class="nav-item nav-link" href="<?= BASEURL; ?>/about"> About</a>	      
-		    </div>
-		  </div>
-	  </div>
-	</nav>
+    <link rel="stylesheet" href="<?= baseurl; ?>vendor/font-awesome/css/all.min.css">
+
+		<link rel="stylesheet" href="<?= baseurl; ?>css/style.css">
+		
+
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+      <nav id="sidebar">
+        <div class="custom-menu">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+              </button>
+            </div>
+        <div class="p-4 pt-5">
+            <h1><a href="<?= baseurl; ?>" class="logo">Splash</a></h1>
+              <ul class="list-unstyled components mb-5">
+                <li>
+                  <a href="<?= baseurl; ?>"> <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="<?= baseurl; ?>/about">About</a>
+                </li>
+                <li>
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="<?= baseurl;  ?>/mahasiswa">Mahasiswa</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+
+              <div class="mb-5">
+            <h3 class="h6">Subscribe for newsletter</h3>
+            <form action="#" class="colorlib-subscribe-form">
+                    <div class="form-group d-flex">
+                      <div class="icon"><span class="icon-paper-plane"></span></div>
+                      <input type="text" class="form-control" placeholder="Enter Email Address">
+                    </div>
+                  </form>
+          </div>
+
+              <div class="footer">
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+              </div>
+
+            </div>
+        </nav>
+
+          <!-- Page Content  -->
+          <div id="content" class="p-4 p-md-5 pt-5">

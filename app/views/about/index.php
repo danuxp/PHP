@@ -1,8 +1,4 @@
 
-<div class="container mt-4">
-	<h1> About </h1>
 
-	<img src="<?= BASEURL; ?>/img/profile.png" alt="profile" class="rounded-circle shadow" >
-</div>
-
-	
+	<h1> about </h1>
+	<p> Halo nama saya <?= $data['nama'];?>, Hobi saya <?= $data['hobi']; ?> dan umur saya <?= $data['umur']; ?>  </p>

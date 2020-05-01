@@ -1,0 +1,89 @@
+<?php  
+
+class Database 
+{
+	private $host = DB_HOST;
+	private $user = DB_USER;
+	private $pass = DB_PASS;
+	private $db_name = DB_NAME;
+
+	private $dbh;
+	private $stm;
+
+	public function __construct()
+	{
+		// data source name
+		$dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
+
+		$option = [
+			// untuk membuat koneksi database terjaga terus
+			PDO::ATTR_PERSISTENT => true,
+			// untuk errornya
+			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		];
+
+		try {
+			$this->dbh = new PDO($dsn, $this->user, $this->pass, );
+		} catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
+	// untuk mejalankan query
+	public function query($query)
+	{
+		// menyiapkan query
+		$this->stmt = $this->dbh->prepare($query);
+	}
+
+	// untuk membinding data seperti where, valuesnya apa atau parameter
+	public function binding($param, $value, $type = null)
+	{
+		if (is_null($type)) {
+			switch (true) {
+				// set type int
+				case is_int($value) :
+					$type = PDO::PARAM_INT;
+					break;
+				// set type bool
+				case is_bool($value) :
+					$type = PDO::PARAM_BOOL;
+					break;
+				// jika valuenya null
+				case is_null ($value) :
+					$type = PDO::PARAM_NULL;
+					break;
+				// asumsikan type string 
+				default :
+				$type = PDO::PARAM_STR;
+			}
+		}
+
+		$this->stmt->bindValue($param, $value, $type);
+	}
+
+	public function execute()
+	{
+		$this->stmt->execute();
+	}
+
+	// mengambil data banyak
+	public function resultSet()
+	{
+		$this->execute();
+		return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	// mengambil satu data
+	public function single()
+	{
+		$this->execute();
+		return $this->stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+
+
+
+}
+
+?>
