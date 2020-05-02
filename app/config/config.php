@@ -1,14 +1,11 @@
 <?php  
 
+define('BASEURL','http://localhost/mvcphp/public');
 
-define('baseurl', 'http://localhost/phpmvc/public/');
-
+// Database
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'phpmvc');
-
-
-
+define('DB_NAME', 'latihan_pdo');
 
 ?>
